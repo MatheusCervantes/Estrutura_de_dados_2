@@ -23,7 +23,10 @@ public:
     virtual ~Arvore();
     void insere (int valor);
     noArvore *raiz = NULL;
-    noArvore* insererecursivo(noArvore *arvore, int valor); 
+    noArvore* insererecursivo(noArvore *arvore, int valor);
+    int buscarecursiva (noArvore *inicio, int valor);
+    noArvore* buscarecursivaend (noArvore *inicio, int valor);
+    int nivelelemento(noArvore *inicio, int valor, int nivel);
     void emordem (noArvore *raiz);
     void preordem (noArvore *raiz);
     void posordem (noArvore *raiz);

@@ -46,10 +46,9 @@ void Arvore::insere (int valor) {
 
 noArvore* Arvore::insererecursivo(noArvore *arvore, int valor) {
     if (arvore == NULL) {
-        arvore = new noArvore;
-        arvore->esquerda = NULL;
-        arvore->direita = NULL;
-        arvore->dado = valor;
+        arvore = new noArvore(valor);
+        //arvore->esquerda = NULL;
+        //arvore->direita = NULL;
     }
     else if (valor < arvore->dado)
         arvore->esquerda = insererecursivo(arvore->esquerda, valor);
@@ -106,3 +105,52 @@ int Arvore::somaelementos2 (noArvore *raiz) {
     }
     return soma;
 }
+
+int Arvore::buscarecursiva (noArvore *inicio, int valor) {
+    if(inicio != NULL) {
+        if(valor == inicio->dado)
+            return inicio->dado;
+        else {
+            if(valor < inicio->dado)
+                valor = this->buscarecursiva(inicio->esquerda, valor);
+            else
+                valor = this->buscarecursiva(inicio->direita, valor);
+        }
+    }
+    else 
+        return 0;
+}
+
+noArvore* Arvore::buscarecursivaend (noArvore *inicio, int valor) {
+    if(inicio != NULL) {
+        if(valor == inicio->dado)
+            return inicio;
+        else {
+            if(valor < inicio->dado)
+                inicio = this->buscarecursivaend(inicio->esquerda, valor);
+            else
+                inicio = this->buscarecursivaend(inicio->direita, valor);
+        }
+    }
+    else 
+        return NULL;
+}
+
+int Arvore::nivelelemento(noArvore *inicio, int valor, int nivel) {
+    if (!inicio)
+        return -1;
+    else {
+        if (valor == inicio->dado)
+            return nivel;
+        else {
+            nivel++;
+
+        if (valor < inicio->dado)
+            nivel = nivelelemento(inicio->esquerda, valor, nivel);
+        else if (valor > inicio->dado)
+            nivel = nivelelemento(inicio->direita, valor, nivel);
+    }
+
+    return nivel;
+    }
+} 
