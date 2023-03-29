@@ -22,6 +22,7 @@ public:
     noArvore(int valor);
     virtual ~noArvore();
     int dado;
+    int altura;
     noArvore *esquerda=NULL;
     noArvore *direita=NULL;
 private:

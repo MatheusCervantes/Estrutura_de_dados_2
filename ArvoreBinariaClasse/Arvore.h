@@ -21,18 +21,19 @@ public:
     Arvore();
     Arvore(const Arvore& orig);
     virtual ~Arvore();
-    void insere (int valor);
+    void insere(int valor);
     noArvore *raiz = NULL;
     noArvore* insererecursivo(noArvore *arvore, int valor);
-    int buscarecursiva (noArvore *inicio, int valor);
-    noArvore* buscarecursivaend (noArvore *inicio, int valor);
+    int buscarecursiva(noArvore *inicio, int valor);
+    noArvore* buscarecursivaend(noArvore *inicio, int valor);
     int nivelelemento(noArvore *inicio, int valor, int nivel);
-    void emordem (noArvore *raiz);
-    void preordem (noArvore *raiz);
-    void posordem (noArvore *raiz);
-    void maiorelemento (noArvore *raiz);
-    int somaelementos (noArvore *raiz);
-    int somaelementos2 (noArvore *raiz);
+    void emordem(noArvore *raiz);
+    void preordem(noArvore *raiz);
+    void posordem(noArvore *raiz);
+    void maiorelemento(noArvore *raiz);
+    int somaelementos(noArvore *raiz);
+    int somaelementos2(noArvore *raiz);
+    noArvore* remover(noArvore *raiz, int valorRem);
 private:
 
 };
